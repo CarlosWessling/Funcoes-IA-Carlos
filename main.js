@@ -6,28 +6,28 @@ const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado: "Gabriel",
+        enunciado: "Você se encontra em uma floresta misteriosa e vê dois caminhos diante de você. Qual você escolhe?",
         alternativas: [
             {
                 texto: " Texto/resposta",
-                afirmacao: " Afirmação ",
+                afirmacao: "O caminho iluminado por uma luz suave.",
             },
             {
                 texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                afirmacao: "O caminho envolto em névoa e sombras",
             }
         ]
     },
     {
-        enunciado: " Pergunta?",
+        enunciado: "Ao longo do caminho, você ouve um som estranho vindo dos arbustos. O que você faz?",
         alternativas: [
             {
                 texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                afirmacao: " Investiga o som, preparado para qualquer coisa.",
             },
             {
                 texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                afirmacao: "Ignora o som e segue em frente rapidamente.",
             }
         ]
     },
@@ -71,3 +71,23 @@ const perguntas = [
         ]
     },
 ];
+
+let atual = 0;
+let perguntaAtual;
+
+function mostraPergunta(){
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
+}
+
+function mostraAlternativas(){
+    for (const alternativa of perguntaAtual.alternativas){
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa.texto;
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
+
+}
+
+mostraPergunta();
